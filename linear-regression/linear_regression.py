@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 # GET (TRAINING) DATA
-with open("data-sets/train.csv", 'r') as tf:
+with open("datasets/train.csv", 'r') as tf:
   xs, ys = [], []
   data = tf.readlines()
   for i in range(1, len(data)):
@@ -14,7 +14,7 @@ with open("data-sets/train.csv", 'r') as tf:
     ys.append(_y)
   xs = np.array(xs)
   ys = np.array(ys)
-
+  
 
 # BUILD MODEL
 # equation of a line: y = mx + c
@@ -30,7 +30,7 @@ bf_line = [(m * x) + c for x in xs]
 # MODEL ACCURACY
 # coefficient of determination, r squared
 SSy_hat = sum([y * y for y in (bf_line - ys)])
-SSy_mean = sum([y * y for y in [bf_y - mean(ys) for bf_y in bf_line]])
+SSy_mean = sum([y * y for y in [y - mean(ys) for y in ys]])
 r2 = 1 - (SSy_hat / SSy_mean)
 print("r squared: " + str(r2))
 
