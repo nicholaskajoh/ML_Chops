@@ -1,48 +1,45 @@
-import numpy as np
 from statistics import mean
 import matplotlib.pyplot as plt
 
+class Linear_Regression:
+  def __init__(self, xs, ys):
+    self.xs = xs
+    self.ys = ys
+    self.m = self.get_m(self.xs, self.ys)
+    self.c = self.get_c(self.xs, self.ys, self.m)
+    self.bfl = self.get_bfl(self.m, self.c, self.xs)
+    self.r2 = self.get_r2(self.bfl, self.ys)
 
-# GET (TRAINING) DATA
-with open("datasets/train.csv", 'r') as tf:
-  xs, ys = [], []
-  data = tf.readlines()
-  for i in range(1, len(data)):
-    d = data[i].rstrip('\n')
-    _x, _y = [float(i) for i in d.split(',')]
-    xs.append(_x)
-    ys.append(_y)
-  xs = np.array(xs)
-  ys = np.array(ys)
-  
+  def get_m(self, xs, ys):
+    # m = slope
+    m = ((mean(xs) * mean(ys)) - mean(xs * ys)) / (mean(xs)**2 - mean(xs * xs))
+    return m
 
-# BUILD MODEL
-# equation of a line: y = mx + c
-# m = slope
-m = ((mean(xs) * mean(ys)) - mean(xs * ys)) / (mean(xs)**2 - mean(xs * xs))
-# c = y intercept
-c = mean(ys) - (m * mean(xs))
-print("slope: " + str(m) + ", y intercept: " + str(c))
-# best fit line
-bf_line = [(m * x) + c for x in xs]
+  def get_c(self, xs, ys, m):
+    # c = y intercept
+    c = mean(ys) - (m * mean(xs))
+    return c
 
+  def get_bfl(self, m, c, xs):
+    # bfl = best fit line
+    # equation of a line: y = mx + c
+    bfl = [(m * x) + c for x in xs]
+    return bfl
 
-# MODEL ACCURACY
-# coefficient of determination, r squared
-SSy_hat = sum([y * y for y in (bf_line - ys)])
-SSy_mean = sum([y * y for y in [y - mean(ys) for y in ys]])
-r2 = 1 - (SSy_hat / SSy_mean)
-print("r squared: " + str(r2))
+  def get_r2(self, bfl, ys):
+    # r squared, r^2 = coefficient of determination
+    SSy_hat = sum([y * y for y in (bfl - ys)])
+    SSy_mean = sum([y * y for y in [y - mean(ys) for y in ys]])
+    r2 = 1 - (SSy_hat / SSy_mean)
+    return r2
 
+  def predict(self, x):
+    y = (self.m * x) + self.c
+    return y
 
-# TEST MODEL
-in_x = 77
-out_y = (m * in_x) + c
-print("PREDICTION => x: " + str(in_x) + ", y: " + str(out_y))
-
-
-# VISUALISE DATA
-plt.scatter(xs, ys)
-plt.plot(xs, bf_line, color='g')
-plt.scatter(in_x, out_y, color='r')
-plt.show()
+  def visualise(self, x, y):
+    # plot a graph with matplotlib
+    plt.scatter(self.xs, self.ys)
+    plt.plot(self.xs, self.bfl, color='g')
+    plt.scatter(x, y, color='r')
+    plt.show()
