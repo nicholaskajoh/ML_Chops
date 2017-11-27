@@ -10,4 +10,5 @@ This repo contains the implementation of Machine Learning algorithms in Python (
 
 ## Requirements
 - numpy
+- pandas
 - matplotlib
