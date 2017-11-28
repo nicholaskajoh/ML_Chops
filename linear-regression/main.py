@@ -2,10 +2,12 @@ import pandas as pd
 import numpy as np
 from Linear_Regression import Linear_Regression
 
+# DATA
 df = pd.read_csv("dataset/train.csv")
 xs = df['x']
 ys = df['y']
 
+# MODEL
 lr = Linear_Regression(xs, ys)
 
 # TEST
