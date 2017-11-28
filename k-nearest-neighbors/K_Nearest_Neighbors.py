@@ -23,5 +23,14 @@ class K_Nearest_Neighbors:
     feature_set_group, self.confidence = nearest_group[0], nearest_group[1] / self.k
     return feature_set_group
 
-  def get_accuracy(self, test_data):
-    pass
+  def test(self, test_data):
+    correct = 0
+    total = 0
+    for group in test_data:
+      for feature_set in test_data[group]:
+        group_prediction = self.predict(feature_set)
+        if group_prediction == group:
+          correct += 1
+        total += 1
+    accuracy = correct / total
+    print("Accuracy=", accuracy)
