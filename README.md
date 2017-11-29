@@ -5,7 +5,9 @@ This repo contains the implementation of Machine Learning algorithms in Python (
 - Linear Regression
 - K Nearest Neighbors
 - Support Vector Machine (SVM)
+- Naive Bayes
 - K Means
+- Mean Shift
 - Neural Nets
 
 ## Requirements
