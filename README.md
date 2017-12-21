@@ -14,3 +14,4 @@ This repo contains the implementation of Machine Learning algorithms in Python (
 - numpy
 - pandas
 - matplotlib
+- cvxopt (for SVM)
