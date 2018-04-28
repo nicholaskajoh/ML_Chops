@@ -16,7 +16,7 @@ df = df.fillna(NaN_replacement)
 
 # replace strings with discrete values in df
 def strs_to_nums(column_name):
-    # get unique unique column values from a given column
+    # get unique column values from a given column
     unique_col_vals = df[column_name].unique()
     # remove NaN if any
     if NaN_replacement in unique_col_vals:
