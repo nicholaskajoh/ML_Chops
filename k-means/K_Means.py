@@ -35,7 +35,7 @@ class K_Means:
             for l in range(self.k):
                 self.centroids[l] = np.average(self.groups[l], axis=0)
 
-            # check if  =  in any centroid position is
+            # check if change in any centroid position is
             # insignificant based on the set tolerance
             # if so, then we're already optimized
             optimized = False
