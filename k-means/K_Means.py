@@ -35,18 +35,18 @@ class K_Means:
             for l in range(self.k):
                 self.centroids[l] = np.average(self.groups[l], axis=0)
 
-            # check if change in any centroid position is
-            # insignificant based on the set tolerance
-            # if so, then we're already optimized
-            optimized = False
+            # check if change in any centroid is
+            # greater than the tolerance
+            # if so, then we're not yet optimized
+            optimized = True
             for centroid_key in self.centroids:
                 old_centroid = old_centroids[centroid_key]
                 new_centroid = self.centroids[centroid_key]
                 a = np.array(new_centroid - old_centroid)
                 b = np.array(old_centroid)
                 change = np.divide(a, b, out=np.zeros_like(a), where=b!=0)
-                if abs(np.sum(change * 100.0)) <= self.tol:
-                    optimized = True
+                if abs(np.sum(change * 100.0)) > self.tol:
+                    optimized = False
                     break
             if optimized:
                 break
