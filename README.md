@@ -7,7 +7,6 @@ Python implementation of some popular Machine Learning algorithms.
 - Support Vector Machine (SVM) ([tutorial][5], [code][6])
 - Naive Bayes ([tutorial][7], [code][8])
 - K Means ([tutorial][9], [code][10])
-- Neural Nets
 
 ## Requirements
 - numpy
