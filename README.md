@@ -14,13 +14,13 @@ Python implementation of some popular Machine Learning algorithms.
 - matplotlib
 - cvxopt (for SVM)
 
-[1]: https://medium.com/@nicholaskajoh/ml-chops-linear-regression-b0e429116bf3
+[1]: https://alphacoder.xyz/linear-regression/
 [2]: linear-regression
-[3]: https://medium.com/@nicholaskajoh/ml-chops-k-nearest-neighbors-ecb3ce7a3b52
+[3]: https://alphacoder.xyz/k-nearest-neighbors/
 [4]: k-nearest-neighbors
-[5]: https://medium.com/@nicholaskajoh/ml-chops-support-vector-machine-926b50907fd
+[5]: https://alphacoder.xyz/support-vector-machine/
 [6]: support-vector-machine
-[7]: https://medium.com/@nicholaskajoh/ml-chops-naive-bayes-aafe9b8dd1e4
+[7]: https://alphacoder.xyz/naive-bayes/
 [8]: naive-bayes
-[9]: https://medium.com/@nicholaskajoh/ml-chops-k-means-18e407183c0f
+[9]: https://alphacoder.xyz/k-means/
 [10]: k-means
